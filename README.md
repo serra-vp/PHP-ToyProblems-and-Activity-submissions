@@ -1,3 +1,3 @@
 # Instruction
 
-Submit your solution by forking this repository and by creating a `submission` branch.
+Fork this repository and submit a link of your `submission` branch to Google Classroom.
