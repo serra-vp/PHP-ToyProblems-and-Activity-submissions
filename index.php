@@ -40,6 +40,13 @@
   }
 
   $portal = new Portal;
+  $projectName = $portal->projectName;
+  $client =  $portal->isClient("Vincent Serra");
+  $projectManager = $portal->myProjectManager("Jino Lacson");
+  $yearDeployed = $portal->yearDeployed(2020);
+  $version = $portal->builtInVersion();
+  $languages = $portal->technologyStack(['PHP','Javascript', 'MVC', 'MySQL', 'Wordpress']);
+  $developers = $portal->developers(['Jaymard', 'Jeffrey', 'Vanessa', 'Delfin', 'Mark', 'Gino', 'Hamlett', 'Franco', 'Rap']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,21 +57,19 @@
 </head>
 <body>
 <?php 
-  echo "<h4>{$portal->projectName}</h4>";
-  echo "<strong>Client: </strong>{$portal->isClient("Vincent Serra")} <br/>";
-  echo "<strong>Project Manager: </strong> {$portal->myProjectManager("Jino Lacson")} <br/>";
-  echo "<strong>Year Deployed: </strong> {$portal->yearDeployed(2020)} <br/>";
-  echo "<strong>Built-in version: </strong> {$portal->builtInVersion()} <br/>";
+  echo "<h4>{$projectName}</h4>";
+  echo "<strong>Client: </strong>{$client} <br/>";
+  echo "<strong>Project Manager: </strong> {$projectManager} <br/>";
+  echo "<strong>Year Deployed: </strong> {$yearDeployed} <br/>";
+  echo "<strong>Built-in version: </strong> {$version} <br/>";
   echo "<strong>Technology Stack: </strong><br/>";
-  foreach($portal->technologyStack(['PHP','Javascript', 'MVC', 'MySQL', 'Wordpress']) as $index => $language):
+  foreach($languages as $index => $language):
     echo "&nbsp; ".++$index.". {$language} <br/>";
   endforeach;
   echo "<strong>Developers: </strong><br/>";
-  //foreach($portal->developers('Jaymard', 'Jeffrey', 'Vanessa', 'Delfin', 'Mark', 'Gino', 'Hamlett', 'Franco', 'Rap') as $index => $devs):
-  foreach($portal->developers(['Jaymard', 'Jeffrey', 'Vanessa', 'Delfin', 'Mark', 'Gino', 'Hamlett', 'Franco', 'Rap']) as $index => $devs):
+  foreach($developers as $index => $devs):
     echo "&nbsp; ".++$index.". {$devs} <br/>";
   endforeach;
-
   ?>
 </body>
 </html>
