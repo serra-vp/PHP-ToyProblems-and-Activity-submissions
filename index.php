@@ -7,14 +7,13 @@ define('ENUM_RATINGS', array(
 ));
 //Your code here..
 
-function compareIfPass($x,$y):? string{
-  if(($x<=>$y ) === 0){
-    return ENUM_RATINGS[1];
-  }elseif(($x<=>$y ) === -1){
-    return ENUM_RATINGS[0];
-  }else{
-    return ENUM_RATINGS[2];
-  }
+function compareIfPass( $newGrade,$oldGrade ):? string{
+
+  $failed = $passed = $improve = null;
+
+  (($newGrade<=>$oldGrade ) === 0) ? $failed = ENUM_RATINGS[0] : (($newGrade<=>$oldGrade) === -1) ? $improve = ENUM_RATINGS[1] : $passed = ENUM_RATINGS[2];
+
+  return $failed ?? $passed ?? $improve;
 }
 ?>
 
